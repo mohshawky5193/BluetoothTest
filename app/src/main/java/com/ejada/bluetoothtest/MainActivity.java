@@ -33,6 +33,8 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.xml.stream.XMLStreamException;
+
 public class MainActivity extends AppCompatActivity{
 
     TextView mTextView;
@@ -58,6 +60,9 @@ public class MainActivity extends AppCompatActivity{
                 try {
                     DLMSMeter.readMeter(args);
                 } catch (IOException e) {
+                    e.printStackTrace();
+                    mTextView.setText(e.getMessage());
+                } catch (XMLStreamException e) {
                     e.printStackTrace();
                     mTextView.setText(e.getMessage());
                 }

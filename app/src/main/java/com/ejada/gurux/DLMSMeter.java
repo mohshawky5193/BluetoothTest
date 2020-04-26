@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.xml.stream.XMLStreamException;
+
 import gurux.dlms.enums.ObjectType;
 import gurux.dlms.objects.GXDLMSObjectCollection;
 import gurux.io.BaudRate;
@@ -15,7 +17,7 @@ import gurux.serial.GXSerial;
 public class DLMSMeter {
 
     public static void readMeter(String[] args)
-            throws IOException {
+            throws IOException, XMLStreamException {
         Settings settings = new Settings();
 
         GXDLMSReader reader = null;
