@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity{
             Toast.makeText(this,"Please enable the bluetooth",Toast.LENGTH_LONG).show();
             finish();
         } else {
-
+            bt.setupService();
             bt.startService(BluetoothState.DEVICE_OTHER);
             Intent intent = new Intent(getApplicationContext(), DeviceList.class);
             startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
