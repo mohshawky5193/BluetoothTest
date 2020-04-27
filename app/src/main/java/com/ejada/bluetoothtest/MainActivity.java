@@ -79,19 +79,22 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        if(!bt.isBluetoothEnabled()) {
+            Toast.makeText(this,"Please enable the bluetooth",Toast.LENGTH_LONG).show();
+            finish();
+        } else {
+
+            bt.startService(BluetoothState.DEVICE_OTHER);
+            Intent intent = new Intent(getApplicationContext(), DeviceList.class);
+            startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
+        }
+
 
     }
 
     public void onStart() {
         super.onStart();
-        if(!bt.isBluetoothEnabled()) {
-            Toast.makeText(this,"Please enable the bluetooth",Toast.LENGTH_LONG).show();
-            finish();
-        } else {
-            bt.startService(BluetoothState.DEVICE_OTHER);
-            Intent intent = new Intent(getApplicationContext(), DeviceList.class);
-            startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
-        }
+
     }
 
 
