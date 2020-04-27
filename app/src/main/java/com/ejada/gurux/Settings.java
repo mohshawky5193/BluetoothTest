@@ -6,7 +6,6 @@ import java.util.Map;
 
 import gurux.common.GXCmdParameter;
 import gurux.common.GXCommon;
-import gurux.common.IGXMedia;
 import gurux.common.enums.TraceLevel;
 import gurux.dlms.GXDLMSClient;
 import gurux.dlms.GXSimpleEntry;
@@ -16,7 +15,8 @@ import gurux.dlms.enums.Security;
 import gurux.dlms.enums.Standard;
 import gurux.dlms.secure.GXDLMSSecureClient;
 import gurux.net.GXNet;
-import gurux.serial.GXSerial;
+
+
 
 public class Settings {
 
@@ -105,14 +105,14 @@ public class Settings {
                                 "Invalid reference option.");
                     }
                     break;
-                case 'h':
+                /*case 'h':
                     // Host address.
                     if (settings.media == null) {
                         settings.media = new GXNet();
                     }
                     net = (GXNet) settings.media;
                     net.setHostName(it.getValue());
-                    break;
+                    break;*/
                 case 't':
                     // Trace.
                     if ("Error".compareTo(it.getValue()) == 0)
@@ -130,14 +130,14 @@ public class Settings {
                                 "Invalid Authentication option '" + it.getValue()
                                         + "'. (Error, Warning, Info, Verbose, Off).");
                     break;
-                case 'p':
+                /*case 'p':
                     // Port.
                     if (settings.media == null) {
                         settings.media = new GXNet();
                     }
                     net = (GXNet) settings.media;
                     net.setPort(Integer.parseInt(it.getValue()));
-                    break;
+                    break;*/
                 case 'P':// Password
                     settings.client.setPassword(it.getValue().getBytes());
                     break;
@@ -215,8 +215,8 @@ public class Settings {
                     }
                     break;
                 case 'S':// Serial Port
-                    settings.media = new GXSerial();
-                    GXSerial serial = (GXSerial) settings.media;
+                    settings.media = new GXSerial2();
+                    GXSerial2 serial = (GXSerial2) settings.media;
                     serial.setPortName(it.getValue());
                     break;
                 case 'a':

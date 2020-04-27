@@ -52,7 +52,6 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import gurux.common.GXCommon;
-import gurux.common.IGXMedia;
 import gurux.common.ReceiveParameters;
 import gurux.common.enums.TraceLevel;
 import gurux.dlms.GXByteBuffer;
@@ -85,7 +84,7 @@ import gurux.io.BaudRate;
 import gurux.io.Parity;
 import gurux.io.StopBits;
 import gurux.net.GXNet;
-import gurux.serial.GXSerial;
+
 
 public class GXDLMSReader {
     IGXMedia Media;
@@ -542,7 +541,7 @@ public class GXDLMSReader {
                 Media.close();
                 // This sleep make sure that all meters can be read.
                 Thread.sleep(400);
-                GXSerial serial = (GXSerial) Media;
+                GXSerial2 serial = (GXSerial2) Media;
                 serial.setDataBits(8);
                 serial.setParity(Parity.NONE);
                 serial.setStopBits(StopBits.ONE);
@@ -562,8 +561,8 @@ public class GXDLMSReader {
      * @throws Exception
      */
     void initializeConnection() throws Exception, InterruptedException {
-        if (Media instanceof GXSerial) {
-            GXSerial serial = (GXSerial) Media;
+        if (Media instanceof GXSerial2) {
+            GXSerial2 serial = (GXSerial2) Media;
             serial.setDtrEnable(true);
             serial.setRtsEnable(true);
         }

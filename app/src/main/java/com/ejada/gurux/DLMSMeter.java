@@ -12,7 +12,6 @@ import gurux.io.BaudRate;
 import gurux.io.Parity;
 import gurux.io.StopBits;
 import gurux.net.GXNet;
-import gurux.serial.GXSerial;
 
 public class DLMSMeter {
 
@@ -32,8 +31,8 @@ public class DLMSMeter {
 
             ////////////////////////////////////////
             // Initialize connection settings.
-            if (settings.media instanceof GXSerial) {
-                GXSerial serial = (GXSerial) settings.media;
+            if (settings.media instanceof GXSerial2) {
+                GXSerial2 serial = (GXSerial2) settings.media;
                 if (settings.iec) {
                     serial.setBaudRate(BaudRate.BAUD_RATE_300);
                     serial.setDataBits(7);

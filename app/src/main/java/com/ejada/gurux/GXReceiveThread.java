@@ -7,7 +7,6 @@ import gurux.common.ReceiveEventArgs;
 import gurux.common.enums.TraceLevel;
 import gurux.common.enums.TraceTypes;
 import gurux.io.NativeCode;
-import com.ejada.gurux.GXSerial;
 
 class GXReceiveThread extends Thread {
 
@@ -23,7 +22,7 @@ class GXReceiveThread extends Thread {
     /**
      * Parent component where notifies are send.
      */
-    private final GXSerial parentMedia;
+    private final GXSerial2 parentMedia;
 
     /**
      * Amount of bytes received.
@@ -36,7 +35,7 @@ class GXReceiveThread extends Thread {
      * @param parent   Parent component.
      * @param hComPort Handle for the serial port.
      */
-    GXReceiveThread(final GXSerial parent, final long hComPort) {
+    GXReceiveThread(final GXSerial2 parent, final long hComPort) {
         super("GXSerialAndroid " + String.valueOf(hComPort));
         comPort = hComPort;
         parentMedia = parent;

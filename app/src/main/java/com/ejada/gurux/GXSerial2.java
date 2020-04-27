@@ -33,7 +33,7 @@ import gurux.io.StopBits;
 import gurux.serial.enums.AvailableMediaSettings;
 import com.ejada.gurux.IGXMedia;
 
-public class GXSerial implements IGXMedia {
+public class GXSerial2 implements IGXMedia {
 
     private int receiveDelay;
 
@@ -132,7 +132,7 @@ public class GXSerial implements IGXMedia {
     /**
      * Constructor.
      */
-    public GXSerial() {
+    public GXSerial2() {
         readBufferSize = DEFUALT_READ_BUFFER_SIZE;
         syncBase = new GXSynchronousMediaBase(readBufferSize);
         setConfigurableSettings(AvailableMediaSettings.ALL.getValue());
@@ -152,9 +152,9 @@ public class GXSerial implements IGXMedia {
      * @param stopBitsValue
      *            Stop bits.
      */
-    public GXSerial(final String port, final BaudRate baudRateValue,
-                    final int dataBitsValue, final Parity parityValue,
-                    final StopBits stopBitsValue) {
+    public GXSerial2(final String port, final BaudRate baudRateValue,
+                     final int dataBitsValue, final Parity parityValue,
+                     final StopBits stopBitsValue) {
         readBufferSize = DEFUALT_READ_BUFFER_SIZE;
         syncBase = new GXSynchronousMediaBase(readBufferSize);
         setConfigurableSettings(AvailableMediaSettings.ALL.getValue());
@@ -972,7 +972,7 @@ public class GXSerial implements IGXMedia {
 
     @Override
     public final void copy(final Object target) {
-        gurux.serial.GXSerial tmp = (gurux.serial.GXSerial) target;
+        GXSerial2 tmp = (GXSerial2) target;
         setPortName(tmp.getPortName());
         setBaudRate(tmp.getBaudRate());
         setStopBits(tmp.getStopBits());
